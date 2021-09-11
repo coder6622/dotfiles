@@ -1,1 +1,1 @@
-# setup_neovim
+# setup_vim
