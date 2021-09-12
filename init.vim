@@ -124,8 +124,8 @@ au BufRead,BufNewFile *.hbs setlocal filetype=html
 let g:is_posix = 1
 
 " Use tab with text block
-vmap <Tab> >gv
-vmap <S-Tab> <gv
+"vmap <Tab> >gv
+"vmap <S-Tab> <gv
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -147,9 +147,9 @@ let NERDTreeShowHidden=1
 " fzf
 
 " bind \ (backward slash) to grep shortcut
-nnoremap K :Ag <C-R><C-W><CR>
+"nnoremap K :Ag <C-R><C-W><CR>
 nnoremap <C-k> /<C-R><C-W><CR>
-nnoremap \ :Ag<SPACE>
+"nnoremap \ :Ag<SPACE>
 
 " GoTo code navigation.et g:lightline = {
       \ 'colorscheme': 'light',
@@ -194,8 +194,4 @@ let g:closetag_filenames = '*.html,*.js,*.jsx,*.vue'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:jsx_ext_required = 0
 
-" Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
 
