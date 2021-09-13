@@ -81,7 +81,9 @@ set number
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-
+set hls is
+set noic
+set invic
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
 
@@ -133,8 +135,8 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-nnoremap <Leader>\ :vsplit<CR>
-nnoremap <Leader>/ :split<CR>
+"nnoremap <Leader>\ :vsplit<CR>
+"nnoremap <Leader>/ :split<CR>
 
 " Remove highlight
 map <C-h> :nohl<CR>
@@ -168,9 +170,9 @@ nnoremap <C-k> /<C-R><C-W><CR>
       \ }
 
 " Multi select
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
+"let g:multi_cursor_next_key='<C-n>'
+"let g:multi_cursor_prev_key='<C-p>'
+"let g:multi_cursor_skip_key='<C-x>'
 
 " fzf.vim
 " Customize fzf colors to match your color scheme
@@ -190,7 +192,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " Auto close tag
-let g:closetag_filenames = '*.html,*.js,*.jsx,*.vue'
+let g:closetag_filenames = '*.html,*.js,*.jsx,*.vue,*.css'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:jsx_ext_required = 0
 
