@@ -3,8 +3,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'rakr/vim-one'
 "File Brower"
 Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons' "Icon file"
-Plug 'Xuyuanp/nerdtree-git-plugin' "Git"
+Plug 'ryanoasis/vim-devicons' "Icon file
+Plug 'Xuyuanp/nerdtree-git-plugin' "Git
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' 
 "File search"
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -17,17 +17,19 @@ Plug 'voldikss/vim-floaterm'
 "Coc"
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-Plug 'jiangmiao/auto-pairs' "Auto pair"
+Plug 'jiangmiao/auto-pairs' "Auto pair
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'maxmellon/vim-jsx-pretty' "Syntax HightLight"
+Plug 'maxmellon/vim-jsx-pretty' 
 "Debug"
 Plug 'puremourning/vimspector'
 "Manage branch git"
 Plug 'tpope/vim-fugitive'
 "Multi select"
 Plug 'terryma/vim-multiple-cursors'
+"Comment in Nvim"
+Plug 'tpope/vim-commentary'
 set background=light        " for the light version
 let g:one_allow_italics = 1 " I love italic for comments
 colorscheme one
@@ -38,7 +40,7 @@ source  ~/.config/nvim/Settings/terminal.vim
 source  ~/.config/nvim/Settings/coc.vim
 source  ~/.config/nvim/Settings/emmet.vim
 " Leader
-let mapleader = " "
+" let mapleader = " "
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -55,16 +57,15 @@ set autoindent
 set smartindent
 
 set autoread
-set autowrite
 
 " Softtabs, 2 spaces
-set tabstop=2
+set tabstop=1
 set shiftwidth=2
 set shiftround
 set expandtab
 
 " Make it obvious where 80 characters is
-set textwidth=80
+set textwidth=90
 set colorcolumn=+1
 
 " Display extra whitespace
@@ -96,6 +97,9 @@ set clipboard=unnamed
 set lazyredraw
 "set termguicolors
 
+set wrap
+set linebreak
+set nolist
 augroup vimrcEx
   autocmd!
   " When editing a file, always jump to the last known cursor position.
@@ -113,13 +117,13 @@ au FileType go set shiftwidth=4
 au FileType go set softtabstop=4
 au FileType go set tabstop=4
 
-au BufRead,BufNewFile .eslintrc.json setlocal filetype=json
-au BufRead,BufNewFile .babelrc setlocal filetype=json
-au BufRead,BufNewFile .prettierrc setlocal filetype=json
+"au BufRead,BufNewFile .eslintrc.json setlocal filetype=json
+"au BufRead,BufNewFile .babelrc setlocal filetype=json
+"au BufRead,BufNewFile .prettierrc setlocal filetype=json
 
-au BufRead,BufNewFile .babelrc.js setlocal filetype=javascript
-au BufRead,BufNewFile .sequelizerc setlocal filetype=javascript
-au BufRead,BufNewFile *.hbs setlocal filetype=html
+"au BufRead,BufNewFile .babelrc.js setlocal filetype=javascript
+"au BufRead,BufNewFile .sequelizerc setlocal filetype=javascript
+"au BufRead,BufNewFile *.hbs setlocal filetype=html
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
@@ -129,7 +133,11 @@ let g:is_posix = 1
 "vmap <Tab> >gv
 "vmap <S-Tab> <gv
 
-" Get off my lawn
+"Comment"
+noremap <C-m> :Commentary<cr>
+"Format
+nnoremap <C-t> :Format<cr>
+"Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
@@ -148,6 +156,8 @@ let NERDTreeShowHidden=1
 
 " fzf
 
+"change normal in terminal
+tnoremap <Esc><Esc> <C-\><C-n>
 " bind \ (backward slash) to grep shortcut
 "nnoremap K :Ag <C-R><C-W><CR>
 nnoremap <C-k> /<C-R><C-W><CR>
@@ -170,9 +180,9 @@ nnoremap <C-k> /<C-R><C-W><CR>
       \ }
 
 " Multi select
-"let g:multi_cursor_next_key='<C-n>'
-"let g:multi_cursor_prev_key='<C-p>'
-"let g:multi_cursor_skip_key='<C-x>'
+" let g:multi_cursor_next_key='<C-n>'
+" let g:multi_cursor_prev_key='<C-p>'
+" let g:multi_cursor_skip_key='<C-x>'
 
 " fzf.vim
 " Customize fzf colors to match your color scheme
@@ -190,10 +200,12 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+ 
 
 " Auto close tag
 let g:closetag_filenames = '*.html,*.js,*.jsx,*.vue,*.css'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:jsx_ext_required = 0
-
+"coc-css
+autocmd FileType scss setl iskeyword+=@-@
 
