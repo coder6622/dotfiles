@@ -30,6 +30,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 "Comment in Nvim"
 Plug 'tpope/vim-commentary'
+Plug 'Chiel92/vim-autoformat'
 set background=light        " for the light version
 let g:one_allow_italics = 1 " I love italic for comments
 colorscheme one
@@ -77,8 +78,10 @@ set nojoinspaces
 " Numbers
 "set relativenumber
 set number
+set iskeyword+=-
 "set numberwidth=5
-
+set relativenumber
+set numberwidth=5
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
@@ -110,7 +113,6 @@ augroup vimrcEx
         \   exe "normal g`\"" |
         \ endif
 augroup END
-
 " Go file config
 au FileType go set noexpandtab
 au FileType go set shiftwidth=4
@@ -132,7 +134,7 @@ let g:is_posix = 1
 " Use tab with text block
 "vmap <Tab> >gv
 "vmap <S-Tab> <gv
-
+noremap <F3> :Autoformat<CR>
 "Comment"
 noremap <C-m> :Commentary<cr>
 "Format
@@ -148,7 +150,8 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " Remove highlight
 map <C-h> :nohl<CR>
-
+"Emmet
+nnoremap E :Emmet
 " NERD tree configuration
 nnoremap F :NERDTreeFind<CR>
 
@@ -164,20 +167,20 @@ nnoremap <C-k> /<C-R><C-W><CR>
 "nnoremap \ :Ag<SPACE>
 
 " GoTo code navigation.et g:lightline = {
-      \ 'colorscheme': 'light',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'lineinfo', 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
+      " \ 'colorscheme': 'light',
+      " \ 'active': {
+      " \   'left': [ [ 'mode', 'paste' ],
+      " \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified' ] ],
+      " \   'right': [ [ 'lineinfo', 'percent' ],
+      " \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      " \ },
+      " \ 'separator': { 'left': '', 'right': '' },
+      " \ 'subseparator': { 'left': '', 'right': '' },
+      " \ 'component_function': {
+      " \   'gitbranch': 'fugitive#head',
+      " \   'cocstatus': 'coc#status'
+      " \ },
+      " \ }
 
 " Multi select
 " let g:multi_cursor_next_key='<C-n>'
@@ -200,12 +203,15 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
- 
 
 " Auto close tag
-let g:closetag_filenames = '*.html,*.js,*.jsx,*.vue,*.css'
+" let g:closetag_filenames = '*.html,*.js,*.jsx,*.vue,*.css'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:jsx_ext_required = 0
 "coc-css
 autocmd FileType scss setl iskeyword+=@-@
 
+augroup css_dash_autocompletion
+      autocmd FileType scss,css autocmd! css_dash_autocompletion InsertEnter <buffer> set isk+=-
+          autocmd FileType scss,css autocmd css_dash_autocompletion InsertLeave <buffer> set isk-=-
+        augroup END
