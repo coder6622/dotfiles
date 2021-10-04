@@ -5,7 +5,7 @@ Plug 'rakr/vim-one'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons' "Icon file
 Plug 'Xuyuanp/nerdtree-git-plugin' "Git
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' 
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "File search"
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -15,13 +15,13 @@ Plug 'itchyny/lightline.vim'
 "Terminal Float"
 Plug 'voldikss/vim-floaterm'
 "Coc"
- Plug 'neoclide/coc.nvim', {'branch': 'release'}
- Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'jiangmiao/auto-pairs' "Auto pair
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'maxmellon/vim-jsx-pretty' 
+Plug 'maxmellon/vim-jsx-pretty'
 "Debug"
 Plug 'puremourning/vimspector'
 "Manage branch git"
@@ -31,6 +31,10 @@ Plug 'terryma/vim-multiple-cursors'
 "Comment in Nvim"
 Plug 'tpope/vim-commentary'
 Plug 'Chiel92/vim-autoformat'
+Plug 'ap/vim-css-color'
+Plug 'lilydjwg/colorizer'
+Plug 'guns/xterm-color-table.vim'
+Plug 'Pocco81/AutoSave.nvim'
 set background=light        " for the light version
 let g:one_allow_italics = 1 " I love italic for comments
 colorscheme one
@@ -40,6 +44,7 @@ source  ~/.config/nvim/Settings/fzf.vim
 source  ~/.config/nvim/Settings/terminal.vim
 source  ~/.config/nvim/Settings/coc.vim
 source  ~/.config/nvim/Settings/emmet.vim
+source  ~/.config/nvim/Settings/multiselect.vim
 " Leader
 " let mapleader = " "
 
@@ -53,8 +58,7 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
-
-set autoindent
+" set autoindent
 set smartindent
 
 set autoread
@@ -77,7 +81,7 @@ set nojoinspaces
 
 " Numbers
 "set relativenumber
-set number
+" set number
 set iskeyword+=-
 "set numberwidth=5
 set relativenumber
@@ -93,7 +97,7 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
-
+set clipboard=unnamedplus
 " Copy to clipboard
 set clipboard=unnamed
 
@@ -167,20 +171,20 @@ nnoremap <C-k> /<C-R><C-W><CR>
 "nnoremap \ :Ag<SPACE>
 
 " GoTo code navigation.et g:lightline = {
-      " \ 'colorscheme': 'light',
-      " \ 'active': {
-      " \   'left': [ [ 'mode', 'paste' ],
-      " \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified' ] ],
-      " \   'right': [ [ 'lineinfo', 'percent' ],
-      " \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      " \ },
-      " \ 'separator': { 'left': '', 'right': '' },
-      " \ 'subseparator': { 'left': '', 'right': '' },
-      " \ 'component_function': {
-      " \   'gitbranch': 'fugitive#head',
-      " \   'cocstatus': 'coc#status'
-      " \ },
-      " \ }
+" \ 'colorscheme': 'light',
+" \ 'active': {
+" \   'left': [ [ 'mode', 'paste' ],
+" \             [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified' ] ],
+" \   'right': [ [ 'lineinfo', 'percent' ],
+" \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+" \ },
+" \ 'separator': { 'left': '', 'right': '' },
+" \ 'subseparator': { 'left': '', 'right': '' },
+" \ 'component_function': {
+" \   'gitbranch': 'fugitive#head',
+" \   'cocstatus': 'coc#status'
+" \ },
+" \ }
 
 " Multi select
 " let g:multi_cursor_next_key='<C-n>'
@@ -190,19 +194,19 @@ nnoremap <C-k> /<C-R><C-W><CR>
 " fzf.vim
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
 
 " Auto close tag
 " let g:closetag_filenames = '*.html,*.js,*.jsx,*.vue,*.css'
@@ -212,6 +216,6 @@ let g:jsx_ext_required = 0
 autocmd FileType scss setl iskeyword+=@-@
 
 augroup css_dash_autocompletion
-      autocmd FileType scss,css autocmd! css_dash_autocompletion InsertEnter <buffer> set isk+=-
-          autocmd FileType scss,css autocmd css_dash_autocompletion InsertLeave <buffer> set isk-=-
-        augroup END
+  autocmd FileType scss,css autocmd! css_dash_autocompletion InsertEnter <buffer> set isk+=-
+  autocmd FileType scss,css autocmd css_dash_autocompletion InsertLeave <buffer> set isk-=-
+augroup END
