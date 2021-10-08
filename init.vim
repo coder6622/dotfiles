@@ -32,6 +32,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ap/vim-css-color'
+Plug 'ryanoasis/vim-devicons'
 Plug 'lilydjwg/colorizer'
 Plug 'guns/xterm-color-table.vim'
 Plug 'Pocco81/AutoSave.nvim'
@@ -47,8 +48,10 @@ source  ~/.config/nvim/Settings/emmet.vim
 source  ~/.config/nvim/Settings/multiselect.vim
 " Leader
 " let mapleader = " "
-
+set smarttab
 set backspace=2   " Backspace deletes like most programs in insert mode
+set ai "Auto indent
+set si "Smart indent
 set nobackup
 set nowritebackup
 set noswapfile
@@ -72,19 +75,23 @@ set expandtab
 " Make it obvious where 80 characters is
 set textwidth=90
 set colorcolumn=+1
-
+set cursorline
+"set cursorcolumn
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
-
+" Move window
+nmap <Space> <C-w>w
+map sh <C-w>h
+map sk <C-w>k
+map sj <C-w>j
+map sl <C-w>l
 " Numbers
-"set relativenumber
-" set number
-set iskeyword+=-
-"set numberwidth=5
 set relativenumber
+set number
+set iskeyword+=-
 set numberwidth=5
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -94,6 +101,22 @@ set noic
 set invic
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
+"Save with root permission
+command! W w !sudo tee > /dev/null %
+" Select all
+nmap <C-a> gg<S-v>G
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+      \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+      \gvy/<C-R><C-R>=substitute(
+      \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+      \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+      \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+      \gvy?<C-R><C-R>=substitute(
+      \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+      \gV:call setreg('"', old_reg, old_regtype)<CR>
+nnoremap <S-C-p>
 
 " Always use vertical diffs
 set diffopt+=vertical
