@@ -46,6 +46,7 @@ source  ~/.config/nvim/Settings/terminal.vim
 source  ~/.config/nvim/Settings/coc.vim
 source  ~/.config/nvim/Settings/emmet.vim
 source  ~/.config/nvim/Settings/multiselect.vim
+source  ~/.config/nvim/Settings/autosave.vim
 " Leader
 " let mapleader = " "
 set smarttab
