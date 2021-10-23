@@ -1,7 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
 "Themes"
-Plug 'rakr/vim-one'
-"File Brower"
+" Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
+" File Brower"
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons' "Icon file
 Plug 'Xuyuanp/nerdtree-git-plugin' "Git
@@ -11,13 +12,14 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 "Status"
 Plug 'itchyny/lightline.vim'
-
+"Equal live server
+" Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 "Terminal Float"
-Plug 'voldikss/vim-floaterm'
 "Coc"
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'jiangmiao/auto-pairs' "Auto pair
+Plug 'AndrewRadev/tagalong.vim'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
@@ -27,7 +29,8 @@ Plug 'puremourning/vimspector'
 "Manage branch git"
 Plug 'tpope/vim-fugitive'
 "Multi select"
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 "Comment in Nvim"
 Plug 'tpope/vim-commentary'
 Plug 'Chiel92/vim-autoformat'
@@ -36,8 +39,12 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'lilydjwg/colorizer'
 Plug 'guns/xterm-color-table.vim'
 Plug 'Pocco81/AutoSave.nvim'
-set background=light        " for the light version
+Plug 'sheerun/vim-polyglot'
+" set background=dark  " for the light version
+set background=light
 let g:one_allow_italics = 1 " I love italic for comments
+syntax on
+" colorscheme onedark
 colorscheme one
 call plug#end()
 source  ~/.config/nvim/Settings/nerdtree.vim
@@ -45,7 +52,7 @@ source  ~/.config/nvim/Settings/fzf.vim
 source  ~/.config/nvim/Settings/terminal.vim
 source  ~/.config/nvim/Settings/coc.vim
 source  ~/.config/nvim/Settings/emmet.vim
-source  ~/.config/nvim/Settings/multiselect.vim
+" source  ~/.config/nvim/Settings/multiselect.vim
 source  ~/.config/nvim/Settings/autosave.vim
 " Leader
 " let mapleader = " "
@@ -165,6 +172,7 @@ let g:is_posix = 1
 noremap <F3> :Autoformat<CR>
 "Comment"
 noremap <C-m> :Commentary<cr>
+" nnoremap <C-]> :BraceyReload<cr>
 "Format
 nnoremap <C-t> :Format<cr>
 "Get off my lawn
@@ -210,27 +218,6 @@ nnoremap <C-k> /<C-R><C-W><CR>
 " \ },
 " \ }
 
-" Multi select
-" let g:multi_cursor_next_key='<C-n>'
-" let g:multi_cursor_prev_key='<C-p>'
-" let g:multi_cursor_skip_key='<C-x>'
-
-" fzf.vim
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-      \ { 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] }
 
 " Auto close tag
 " let g:closetag_filenames = '*.html,*.js,*.jsx,*.vue,*.css'
