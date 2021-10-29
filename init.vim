@@ -41,11 +41,11 @@ Plug 'guns/xterm-color-table.vim'
 Plug 'Pocco81/AutoSave.nvim'
 Plug 'sheerun/vim-polyglot'
 " set background=dark  " for the light version
-set background=light
+" set background=light
 let g:one_allow_italics = 1 " I love italic for comments
-syntax on
-" colorscheme onedark
-colorscheme one
+" syntax on
+colorscheme onedark
+" colorscheme one
 call plug#end()
 source  ~/.config/nvim/Settings/nerdtree.vim
 source  ~/.config/nvim/Settings/fzf.vim
@@ -229,4 +229,4 @@ autocmd FileType scss setl iskeyword+=@-@
 augroup css_dash_autocompletion
   autocmd FileType scss,css autocmd! css_dash_autocompletion InsertEnter <buffer> set isk+=-
   autocmd FileType scss,css autocmd css_dash_autocompletion InsertLeave <buffer> set isk-=-
-augroup END
+augroup EN
