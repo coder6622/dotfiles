@@ -15,8 +15,8 @@ nnoremap dw vb"_d
 " Select all
 nmap <C-a> gg<S-v>G
 
-nnoremap <C-k> /<C-R><C-W><CR>
-map <C-h> :nohl<CR>
+nnoremap <silent> <C-k> /<C-R><C-W><CR>
+map <silent> <C-h> :nohlsearch<CR>
 
 " Save with root permission
 command! W w !sudo tee > /dev/null %
@@ -48,6 +48,12 @@ tnoremap <Esc><Esc> <C-\><C-n>
 " Split window
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
+
+"resize  split
+noremap <silent> <C-S-Left> :vertical resize -5<CR>
+noremap <silent> <C-S-Right> :vertical resize +5<CR>
+noremap <silent> <C-S-Up> :resize +5<CR>
+noremap <silent> <C-S-Down> :resize -5<CR>
 " Move window
 map s<left> <C-w>h
 map s<up> <C-w>k
@@ -68,9 +74,5 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" range_formatting in visual mode
-xmap <Leader>f <Plug>(prettier-format)
-
-" formatting in normal mode
-nmap <Leader>f <Plug>(prettier-format)
-
+"formater
+nnoremap <silent> <leader>f :Format<CR>

@@ -17,8 +17,9 @@ if has("nvim")
 		Plug 'prabirshrestha/vim-lsp'
 
 		"prettier
-		Plug 'jose-elias-alvarez/null-ls.nvim'
-		Plug 'MunifTanjim/prettier.nvim'
+		Plug 'mhartington/formatter.nvim'
+
+	
 		"lsp
   Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
   Plug 'nvim-lua/completion-nvim'
@@ -27,6 +28,8 @@ if has("nvim")
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
+		Plug 'hrsh7th/vim-vsnip'
+		Plug 'hrsh7th/vim-vsnip-integ'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'onsails/lspkind-nvim'
@@ -42,4 +45,3 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 call plug#end()
 
-source ~/.config/nvim/after/plugin/prettier.nvim

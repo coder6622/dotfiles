@@ -60,7 +60,8 @@ set wildignore+=*/node_modules/*
 set cursorline
 "set cursorcolumn
 
-set mouse=a
+set mouse=n
+
 
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
@@ -102,8 +103,6 @@ au BufNewFile,BufRead *.scss set filetype=scss
 set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 "}}}
-"
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " Imports "{{{
 " ---------------------------------------------------------------------
