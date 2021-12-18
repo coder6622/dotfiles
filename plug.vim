@@ -37,6 +37,10 @@ if has("nvim")
 		Plug 'windwp/nvim-ts-autotag'
 		Plug 'navarasu/onedark.nvim'
 		Plug 'numToStr/Comment.nvim'
+		Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+
+
 endif
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
