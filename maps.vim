@@ -15,8 +15,8 @@ nnoremap dw vb"_d
 " Select all
 nmap <C-a> gg<S-v>G
 
-nnoremap <silent> <C-k> /<C-R><C-W><CR>
-map <silent> <C-h> :nohlsearch<CR>
+nnoremap <silent> <A-k> /<C-R><C-W><CR>
+map <silent> <A-h> :nohlsearch<CR>
 
 " Save with root permission
 command! W w !sudo tee > /dev/null %

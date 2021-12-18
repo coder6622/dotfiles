@@ -26,6 +26,10 @@ require'nvim-treesitter.configs'.setup {
     "regex",
     "css",
   },
+	 autotag = {
+		enable = true,
+		filetypes = {"html", "xml", "javascript", "javascriptreact"}
+}
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

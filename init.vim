@@ -19,7 +19,6 @@ set relativenumber
 syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
-set autoindent
 set background=dark
 set nobackup
 set noswapfile
@@ -37,18 +36,18 @@ set cursorline
 
 " incremental substitution (neovim)
 if has('nvim')
-  set inccommand=split
+	set inccommand=split
 endif
 
 set ignorecase
 " Be smart when using tabs ;)
-set smarttab
 " indents
-filetype plugin indent on
-set shiftwidth=2
-set tabstop=1
-set ai "Auto indent
+filetype plugin  indent on
+set shiftwidth=1
+set smarttab
+set tabstop=4
 set si "Smart indent
+set autoindent
 " Finding files - Search down into subfolders
 set path+=**
 set wildignore+=*/node_modules/*
@@ -69,14 +68,14 @@ highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
 
 augroup BgHighlight
-  autocmd!
-  autocmd WinEnter * set cul
-  autocmd WinLeave * set nocul
+	autocmd!
+	autocmd WinEnter * set cul
+	autocmd WinLeave * set nocul
 augroup END
 
 if &term =~ "screen"
-  autocmd BufEnter * if bufname("") !~ "^?[A-Za-z0-9?]*://" | silent! exe '!echo -n "\ek[`hostname`:`basename $PWD`/`basename %`]\e\\"' | endif
-  autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
+	autocmd BufEnter * if bufname("") !~ "^?[A-Za-z0-9?]*://" | silent! exe '!echo -n "\ek[`hostname`:`basename $PWD`/`basename %`]\e\\"' | endif
+	autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
 endif
 
 "}}}
@@ -115,14 +114,14 @@ runtime ./maps.vim
 
 " true color
 if exists("&termguicolors") && exists("&winblend")
-  syntax enable
-  set termguicolors
-  set winblend=0
-  set wildoptions=pum
-  set pumblend=5
-  set background=dark
-  let g:onedark_style = 'cool'
-colorscheme onedark
+	syntax enable
+	set termguicolors
+	set winblend=0
+	set wildoptions=pum
+	set pumblend=5
+	set background=dark
+	let g:onedark_style = 'cool'
+	colorscheme onedark
 endif
 
 
