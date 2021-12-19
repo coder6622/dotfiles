@@ -43,7 +43,7 @@ set ignorecase
 " Be smart when using tabs ;)
 " indents
 filetype plugin  indent on
-set shiftwidth=1
+set shiftwidth=2
 set smarttab
 set tabstop=4
 set si "Smart indent
@@ -123,6 +123,5 @@ if exists("&termguicolors") && exists("&winblend")
 	let g:onedark_style = 'cool'
 	colorscheme onedark
 endif
-
 
 
