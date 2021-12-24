@@ -42,6 +42,10 @@ if has("nvim")
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'tpope/vim-surround'
 
+  " post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
 
 endif

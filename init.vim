@@ -16,7 +16,6 @@ set nolist
 "Number
 set number
 set relativenumber
-syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
 set background=dark
@@ -39,13 +38,17 @@ if has('nvim')
 	set inccommand=split
 endif
 
+if has ("syntax")
+  syntax on
+endif
+
 set ignorecase
 " Be smart when using tabs ;)
 " indents
 filetype plugin  indent on
 set shiftwidth=2
 set smarttab
-set tabstop=4
+set tabstop=5
 set si "Smart indent
 set autoindent
 " Finding files - Search down into subfolders
@@ -59,7 +62,7 @@ set wildignore+=*/node_modules/*
 set cursorline
 "set cursorcolumn
 
-set mouse=n
+set mouse=a
 
 
 " Set cursor line color on visual mode
@@ -74,7 +77,7 @@ augroup BgHighlight
 augroup END
 
 if &term =~ "screen"
-	autocmd BufEnter * if bufname("") !~ "^?[A-Za-z0-9?]*://" | silent! exe '!echo -n "\ek[`hostname`:`basename $PWD`/`basename %`]\e\\"' | endif
+	autocmd BufEnter * if bufname('') !~ "^?[A-Za-z0-9?]*://" | silent! exe '!echo -n "\ek[`hostname`:`basename $PWD`/`basename %`]\e\\"' | endif
 	autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
 endif
 
@@ -105,17 +108,17 @@ autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 autocmd FileType ruby se
 
 " Imports "{{{
 " ---------------------------------------------------------------------
-runtime ./plug.vim
 runtime ./maps.vim
+runtime ./plug.vim
 "}}}
 
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
-
+    
 " true color
 if exists("&termguicolors") && exists("&winblend")
 	syntax enable
-	set termguicolors
+	 set termguicolors
 	set winblend=0
 	set wildoptions=pum
 	set pumblend=5
@@ -123,5 +126,15 @@ if exists("&termguicolors") && exists("&winblend")
 	let g:onedark_style = 'cool'
 	colorscheme onedark
 endif
+
+
+"prettier
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+" when running at every change you may want to disable quickfix
+let g:prettier#quickfix_enabled = 0
+
+
+
 
 

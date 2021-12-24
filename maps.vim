@@ -76,5 +76,7 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-"formater
-nnoremap <silent> <leader>f :Format<CR>
+
+
+
+

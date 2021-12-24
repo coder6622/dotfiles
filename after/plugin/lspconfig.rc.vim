@@ -100,7 +100,7 @@ filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },
+  filetypes = {'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },
   init_options = {
 	linters = {
 	  eslint = {
@@ -141,7 +141,7 @@ formatters = {
 	command = 'prettier_d_slim',
 	rootPatterns = { '.git' },
 	-- requiredFiles: { 'prettier.config.js' },
-	args = { '--stdin', '--stdin-filepath', '%filename' }
+	args = { '--stdin', '--stdin-filepath', '%filename'}
 	}
   },
 formatFiletypes = {
@@ -153,7 +153,6 @@ formatFiletypes = {
   less = 'prettier',
   typescript = 'prettier',
   typescriptreact = 'prettier',
-  json = 'prettier',
   markdown = 'prettier',
   }
 }
