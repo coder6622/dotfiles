@@ -113,10 +113,10 @@ nvim_lsp.diagnosticls.setup {
 		  errorsRoot = '[0].messages',
 		  line = 'line',
 		  column = 'column',
-		endLine = 'endLine',
-	  endColumn = 'endColumn',
-	  message = '[eslint] ${message} [${ruleId}]',
-	  security = 'severity'
+		  endLine = 'endLine',
+		 endColumn = 'endColumn',
+		 message = '[eslint] ${message} [${ruleId}]',
+		 security = 'severity'
 	  },
 	securities = {
 	  [2] = 'error',
@@ -157,7 +157,6 @@ formatFiletypes = {
   }
 }
 }
-
 --icon
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {

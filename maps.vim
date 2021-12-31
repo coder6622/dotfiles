@@ -6,7 +6,7 @@ nnoremap <leader>d "_d
 nnoremap x "_x
 
 " Increment/decrement
-nnoremap + <C-a>
+nnoremap + <C-t>
 nnoremap - <C-x>
 
 " Delete a word backwards

@@ -131,8 +131,10 @@ endif
 "prettier
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
-" when running at every change you may want to disable quickfix
-let g:prettier#quickfix_enabled = 0
+let g:prettier#config#single_quote = '--single-quote'
+let g:prettier#config#trailing_comma = 'all'
+let g:prettier#config#bracket_spacing = '--bracket-spacing'
+let g:prettier#config#bracket_same_line = '--bracket-same-line'
 
 
 

@@ -16,7 +16,7 @@ if has("nvim")
   Plug 'neovim/nvim-lspconfig'
   Plug 'prabirshrestha/vim-lsp'
   "lsp
-  Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
+  Plug 'tami5/lspsaga.nvim'
   Plug 'nvim-lua/completion-nvim'
   Plug 'folke/lsp-colors.nvim'
   Plug 'L3MON4D3/LuaSnip'
