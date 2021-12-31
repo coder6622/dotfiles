@@ -3,6 +3,8 @@ set fish_greeting ""
 set -gx TERM xterm-256color
 
 #theme
+set -g theme_hide_hostname no
+set -g theme_hostname always
 set -g theme_display_git yes
 set -g theme_display_git_dirty yes
 set -g theme_display_git_untracked yes
@@ -10,7 +12,7 @@ set -g theme_display_git_ahead_verbose yes
 set -g theme_display_git_dirty_verbose yes
 set -g theme_display_git_stashed_verbose yes
 set -g theme_display_git_default_branch yes
-set -g theme_git_default_branches master main
+set -g theme_git_default_branches master main 
 set -g theme_git_worktree_support yes
 set -g theme_use_abbreviated_branch_name yes
 set -g theme_display_vagrant yes
@@ -41,8 +43,8 @@ set -g default_user your_normal_user
 set -g theme_color_scheme solarized-dark
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
-set -g theme_newline_cursor no
-set -g theme_newline_prompt '$ '
+set -g theme_newline_cursor yes 
+set -g theme_newline_prompt '$$ '
 
 
 
