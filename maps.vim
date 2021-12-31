@@ -6,7 +6,7 @@ nnoremap <leader>d "_d
 nnoremap x "_x
 
 " Increment/decrement
-nnoremap + <C-t>
+nnoremap + <C-a>
 nnoremap - <C-x>
 
 " Delete a word backwards
@@ -40,7 +40,7 @@ vnoremap <silent> # :<C-U>
 nmap te :tabedit 
 nmap tn :tabnew<Return>
 nmap tc :tabclose<Return>
-nmap <S-Tab> :tabprev<Return>
+nmap tp :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 
 "------------------------------
@@ -52,10 +52,10 @@ nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
 
 "resize  split
-noremap <silent> <C-S-Left> :vertical resize -5<CR>
-noremap <silent> <C-S-Right> :vertical resize +5<CR>
-noremap <silent> <C-S-Up> :resize +5<CR>
-noremap <silent> <C-S-Down> :resize -5<CR>
+noremap <silent> <S-h> :vertical resize -5<CR>
+noremap <silent> <S-l> :vertical resize +5<CR>
+noremap <silent> <S-k> :resize +5<CR>
+noremap <silent> <S-j> :resize -5<CR>
 " Move window
 map s<left> <C-w>h
 map s<up> <C-w>k
@@ -76,7 +76,7 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-
-
-
-
+" nnoremap <silent> <C-S-Up> :exe "resize " . (winheight(0) * 3/2)<CR>
+" nnoremap <silent> <C-S-Down> :exe "resize " . (winheight(0) * 2/3)<CR>
+" nnoremap <silent> <C-S-Left> :exe "vertical resize " . (winheight(0) * 3/2)<CR>
+" nnoremap <silent> <C-S-Right> :exe "vertical resize " . (winheight(0) * 2/3)<CR>

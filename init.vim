@@ -62,7 +62,7 @@ set wildignore+=*/node_modules/*
 set cursorline
 "set cursorcolumn
 
-set mouse=a
+set mouse=n
 
 
 " Set cursor line color on visual mode
