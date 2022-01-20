@@ -93,9 +93,7 @@ for _, lsp in ipairs(servers) do
 end
 
 nvim_lsp.emmet_ls.setup{
-filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'css', 'scss'}
-
-
+filetypes = { 'html', 'css', 'scss'}
 }
 
 nvim_lsp.diagnosticls.setup {

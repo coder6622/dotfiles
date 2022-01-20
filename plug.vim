@@ -33,6 +33,7 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
+  "theme
   Plug 'navarasu/onedark.nvim'
   Plug 'numToStr/Comment.nvim'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -42,11 +43,14 @@ if has("nvim")
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'tpope/vim-surround'
 
+  "file browser NOTE: 
+  Plug 'preservim/nerdtree'
+
+  "format
   " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-
+  
 
 endif
 Plug 'groenewege/vim-less', { 'for': 'less' }
